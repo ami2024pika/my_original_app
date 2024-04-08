@@ -1,0 +1,13 @@
+.text-orange {
+  color: #ed7700;
+}
+
+.btn-orange {
+  background-color: #ffbc61;
+  color: white;
+}
+
+.btn-orange:hover {
+  border-color: #ed7700;
+  color: #ed7700;
+}
