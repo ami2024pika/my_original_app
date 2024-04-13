@@ -5,9 +5,12 @@
 .btn-orange {
   background-color: #ffbc61;
   color: white;
+  transition: all .3s ease;
 }
 
 .btn-orange:hover {
   border-color: #ed7700;
+  background-color: #FFF4E0;
   color: #ed7700;
 }
+
