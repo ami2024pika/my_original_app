@@ -8,20 +8,28 @@
       </div>
       
       <div class="d-flex justify-content-end align-items-center">
-        <!--<i class="bi bi-person-circle me-2"></i>-->
-        <!--<p class="text-orange d-md-block d-none fs-6 px-2 mt-3">ユーザー名</p>-->
-        <!--<div class="dropdown">-->
-        <!--  <a class="dropdown-toggle text-black me-3" data-bs-toggle="dropdown" href="#"></a>-->
-        <!--  <div class="dropdown-menu dropdown-menu-end shadow text-center" style="padding: 4px 0px;">-->
-        <!--    <%= link_to "アカウント編集", "#", class: "dropdown-item border-bottom py-2", data: { turbolinks: false } %>-->
-        <!--    <%= link_to "ログアウト", "#", class: "dropdown-item py-2", method: :delete %>-->
-        <!--  </div>-->
-        <!--</div>-->
-        
-        
-        <%= link_to "ログイン", "#", class: "btn text-orange me-3", data: { turbolinks: false } %>
-        <%= link_to "新規会員登録", "#", class: "btn text-orange me-3", data: { turbolinks: false } %>
-        <%= link_to "悩みを投稿する", "#", class: "btn btn-orange px-3 py-2", data: { turbolinks: false } %>
+        <% if user_signed_in? %>
+          <% if current_user.avatar.present? %>
+            <%= image_tag current_user.avatar.url, alt: "ユーザーアイコン", class: "rounded-circle", style: "width: 50px; height: 50px; object-fit: cover;" %>
+          <% else %>
+            <i class="bi bi-person-circle me-2"></i>
+          <% end %>
+          
+          <p class="text-orange d-md-block d-none fs-6 px-2 mt-3"><%= current_user.username %></p>
+          
+          <div class="dropdown">
+            <a class="dropdown-toggle text-black me-3" data-bs-toggle="dropdown" href="#"></a>
+            <div class="dropdown-menu dropdown-menu-end shadow text-center" style="padding: 4px 0px;">
+              <%= link_to "アカウント編集", edit_user_registration_path, class: "dropdown-item border-bottom py-2", data: { turbolinks: false } %>
+              <%= link_to "ログアウト", destroy_user_session_path, class: "dropdown-item py-2", method: :delete %>
+            </div>
+          </div>
+          <%= link_to "悩みを投稿する", new_post_path, class: "btn btn-orange px-3 py-2", data: { turbolinks: false } %>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path, class: "btn text-orange me-3", data: { turbolinks: false } %>
+          <%= link_to "新規会員登録", new_user_registration_path, class: "btn text-orange me-3", data: { turbolinks: false } %>
+          <%= link_to "悩みを投稿する", new_post_path, class: "btn btn-orange px-3 py-2", data: { turbolinks: false } %>
+        <% end %>
       </div>
     </div>
   </div>
