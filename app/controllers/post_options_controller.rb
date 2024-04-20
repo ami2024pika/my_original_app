@@ -1,0 +1,2 @@
+class PostOptionsController < ApplicationController
+end
