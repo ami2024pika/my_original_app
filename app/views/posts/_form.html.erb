@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+  <div class="col-10 col-md-6">
+    <%= form_with model: post, local: true do |f| %>
+      <%= render "layouts/error_messages" %>
+      
+      <div class="pb-4">
+        <%= f.label :title, "タイトル", class: "fw-bold mb-2" %>
+        <span class="small text-orange fw-bold">必須</span>
+        <%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: "タイトルを入力", class: "form-control" %>
+      </div>
+      
+      <div class="pb-4">
+        <%= f.label :content, "相談内容", class: "fw-bold mb-2" %>
+        <span class="small text-orange fw-bold">必須</span>
+        <%= f.text_area :content, autofocus: true, autocomplete: "content", placeholder: "相談内容を入力", size: "30x5", class: "form-control" %>
+      </div>
+      
+      <% post.post_options.each_with_index do |option, index| %>
+        <%= f.fields_for :post_options, option do |option_form| %>
+          <div class="pb-4">
+            <%= option_form.label :content, "選択肢#{index + 1} #{index < 2 ? '<span class="small text-orange fw-bold">必須</span>' : ''}".html_safe, class: "fw-bold mb-2" %>
+            <%= option_form.text_field :content, autofocus: true, autocomplete: "content", placeholder: "選択肢の内容を入力", class: "form-control" %>
+          </div>
+        <% end %>
+      <% end %>
+      
+      <div class="pb-4">
+        <%= f.label :category_id, "相談内容のジャンル", class: "fw-bold mb-2" %>
+        <span class="small text-orange fw-bold">必須</span>
+        <%= f.collection_select :category_id, categories, :id, :name, prompt: "ジャンルを選択してください", class: "form-control" %>
+      </div>
+      
+      <div class="text-center">
+        <%= f.submit button_text, class: "btn btn-orange px-4 py-2" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise', '4.9.3'
 gem 'devise-i18n', '1.12.0'
 gem 'carrierwave', '~> 2.0'
-
+gem 'pry-rails'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
