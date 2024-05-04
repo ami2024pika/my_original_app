@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="text-center">
+        <p class="title-text-orange mt-5">投稿詳細</p>
+      </div>
+      
+    <!--投稿コンテンツ  -->
+      <%= render "post", post: @post %>
+        
+    <!--コメントの作成  -->
+      <div>
+        <p class="text-orange fw-bold fs-5">コメント</p>  
+      <!--コメント一覧の表示-->
+        <%= render partial: "post_comment", collection: @post.post_comments %>
+      <!--コメント作成  -->
+        <%= render "comment_form", post: @post %>
+      </div>
+      
+    </div>
+  </div>
+</div>  

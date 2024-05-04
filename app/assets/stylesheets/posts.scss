@@ -1,3 +1,24 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+/*ページネーションデザイン*/
+.pagination>li>a {          
+  border: none;
+  color: #ed7700;
+  background-color: #FFF4E0;
+  text-decoration: underline;
+}
+
+.pagination>.active>a {     
+  background: #ffbc61;
+  text-decoration: none;
+}
+
+.pagination>li>a:hover {        
+  color: black;
+}
+
+.pagination{
+  margin: 0 auto 30px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

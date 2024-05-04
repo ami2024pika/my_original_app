@@ -1,0 +1,57 @@
+<div class="card d-block mb-5 p-4">
+  <div class="card_top d-flex justify-content-between">
+    <!-- カテゴリー名と投票数の表示 -->
+    <div>
+      <span class="each_category"><%= post.category.name %></span>
+      <span class="votes_number"><span class="small">投票数</span> <span class="fw-bold"><%= Vote.where(post_id: post.id).count %>票</span></span>
+    </div>
+    
+    <!--詳細・編集・削除メニュー  -->
+    <div class="dropstart">
+      <a class="dropdown-toggle btn text-orange" data-bs-toggle="dropdown" href="#">Menu</a>
+      <div class="dropdown-menu p-0">
+        <% unless controller_name == 'posts' && action_name == 'show' %>
+          <li><%= link_to "詳細", post_path(post), class: "dropdown-item border-bottom py-2" %></li>
+        <% end %>
+          
+        <% if current_user == post.user %>
+          <li><%= link_to "編集", edit_post_path(post), class: "dropdown-item border-bottom py-2" %></li>
+          <li><%= link_to "削除", post_path(post), method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: "dropdown-item py-2" %></li>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  
+  <!--投稿メインコンテンツ  -->
+  <div class="card_content" style="overflow-x: hidden;">
+    <p class="fw-bold mt-3 px-3", style="font-size: 18px;"><%= post.title %></p>
+    <p class="my-4 px-3"><%= post.content %></p>
+      
+    <div class="options">
+      <% post.post_options.each_with_index do |option, index| %>
+        <div class="option">
+          <p class="option_content"><%= option.content %></p>
+          <div class="mx-auto">
+            <%= form_with model: [post, Vote.new], local: true do |f| %>
+              <%= hidden_field_tag :post_id, post.id %>
+              <%= hidden_field_tag :post_option_id, option.id %>
+              <%= hidden_field_tag :session_id, request.session.id %>
+              <%= f.submit "この案に投票する", class: "btn d-block vote_btn color_#{index}" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    
+    <div class="options2">
+      <% post.post_options.each_with_index do |option, index| %>
+        <div class="option">
+          <div class="mx-auto mt-4 text-center">
+            <span class="small"><%= Vote.where(post_option_id: option.id).count %>票</span>
+            <div class="reputation_<%= Vote.where(post_option_id: option.id).count %>"></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

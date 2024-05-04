@@ -1,0 +1,7 @@
+@for $i from 1 through 50 {
+  .reputation_#{$i} {
+    height: #{$i * 8}px !important;
+    background-color: #ffe7ba;
+    width: 40px;
+  }
+}
