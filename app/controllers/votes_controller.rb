@@ -4,7 +4,7 @@ class VotesController < ApplicationController
     
     if @post.user == current_user
       redirect_to root_path, alert: "自分の記事には投票できません"
-    elsif already_voted?
+    elsif Vote.already_voted?(@post.id, params[:session_id])
       redirect_to root_path, alert: "すでに投票しています"
     else  
       @vote = Vote.new(vote_params)
@@ -21,8 +21,4 @@ class VotesController < ApplicationController
   def vote_params
     params.permit(:post_id, :post_option_id, :session_id)
   end
-  
-  def already_voted?
-    @post.votes.exists?(session_id: params[:session_id])
-  end  
 end
