@@ -1,8 +1,14 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:edit, :update, :destroy]
-  before_action :set_categories, only: [:new, :create, :edit, :update]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_categories, only: [:index, :new, :create, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :redirect_unless_creator!, only: [:edit, :update, :destroy]
   
   def index
+    @posts = Post.order(created_at: :desc).page(params[:page]).per(5)
+  end
+  
+  def show
   end  
   
   def new
@@ -32,12 +38,13 @@ class PostsController < ApplicationController
   
   def destroy
     @post.destroy
+    redirect_to root_path, notice: "投稿を削除しました"
   end  
   
   private
   
   def post_params
-    params.require(:post).permit(:title, :content, :category_id, post_options_attributes: [:id, :content]).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :content, :category_id, post_options_attributes: [:content, :_destroy, :id]).merge(user_id: current_user.id)
   end
   
   def set_post
@@ -46,5 +53,9 @@ class PostsController < ApplicationController
   
   def set_categories
     @categories = Category.all
-  end  
+  end
+  
+  def redirect_unless_creator!
+    redirect_to root_path unless @post.user == current_user
+  end
 end

@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-md bg-body-pink bottom_nav">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="category-title">
+            <p>みんなのお悩みカテゴリ</p>
+          </div>
+          <p class="m-0"><%= link_to "新着順", root_path, class: "text-white", style: "text-decoration: none;" %></p>
+          <% @categories.each do |category| %>
+            <p class="m-0">
+              <%= link_to category.name, category_path(category), class: "text-white", style: "text-decoration: none;" %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

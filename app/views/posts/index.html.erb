@@ -1,0 +1,55 @@
+<%= render "layouts/category-header" %>
+
+<!--メインビジュアル-->
+<div class="main_visual bg-body-orange mb-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="d-flex col-md-10 my-2 justify-content-around align-items-center">
+        <h1 class="col-md-6 col-8 text-white my-2 h1-responsive">あなたのその悩み、<br>誰かに聞いてもらいませんか？</h1>
+        <div class="col-md-4 col-4">
+          <%= image_tag "main_visual.png", class: "img-fluid", alt: "MainVisual" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+    
+    <!--アプリの使い方-->
+      <div class="text-center">
+        <p class="small mb-1 fw-bold">気軽にお悩み・疑問の解決ができる</p>
+        <p class="title-text-orange">「Encourage！」の使い方</p>
+      </div>
+      
+      <div class="d-flex mb-5 justify-content-between">
+        <div class="card bg-white mr-2 col-md-3 col-sm-4" style="overflow: hidden;">
+          <%= image_tag "usage_1.png", class: "usage_1 img-fluid mx-auto", width: "185px", alt: "Usage_1"; %>
+          <div class="py-3 fw-bold text-center">
+            <p class="mt-4 mb-1">聞きたい悩みを投稿</p>
+            <p class="mb-0">答えたい投稿を探す</p>
+          </div>
+        </div>
+        <div class="card bg-white text-center mr-2 col-md-3 col-sm-4">
+          <%= image_tag "usage_2.png", class: "img-fluid mx-auto", width: "185px", alt: "Usage_2"; %>
+          <p class="mb-0 py-3 mt-2 fw-bold">自分の意見を投票！</p>
+        </div>
+        <div class="card bg-white text-center col-md-3 col-sm-4">
+          <%= image_tag "usage_3.png", class: "img-fluid mx-auto", width: "185px", alt: "Usage_3"; %>
+          <p class="mb-0 py-3 fw-bold">悩み・疑問解決！</p>
+        </div>
+      </div>
+      
+    <!--各投稿の表示-->
+      <div class="text-center">
+        <p class="title-text-orange">新着のお悩み・疑問の投稿</p>
+      </div>
+      
+      <%= render partial: "post", collection: @posts %>
+      
+      <%= paginate @posts, theme: 'bootstrap-5' %>
+    </div>  
+  </div>
+</div>
