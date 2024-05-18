@@ -136,17 +136,17 @@
 }
 
 .edit-profile-btn {
-  margin-left: 50px;
+  margin-left: 20px;
   font-weight: bold;
-  height: 28px;
-  line-height: 28px;
-  padding: 0 50px;
-  border-color: #ed7700;
+  height: auto;
+  line-height: 1.8;
+  padding: 0 30px;
   font-size: 14px;
-  color: #ed7700;
+  color: white;
+  background-color: #ffbc61;
 }
 
 .edit-profile-btn:hover {
-  background-color: #ffbc61;
-  color: white;
+  color: #ed7700;
+  border-color: #ed7700;
 }

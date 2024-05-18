@@ -8,7 +8,9 @@
     
     <!--詳細・編集・削除メニュー  -->
     <div class="dropstart">
-      <a class="dropdown-toggle btn text-orange" data-bs-toggle="dropdown" href="#">Menu</a>
+      <a class="btn text-orange" data-bs-toggle="dropdown" href="#">
+        <i class="bi bi-three-dots-vertical"></i>
+      </a>
       <div class="dropdown-menu p-0">
         <% unless controller_name == 'posts' && action_name == 'show' %>
           <li><%= link_to "詳細", post_path(post), class: "dropdown-item border-bottom py-2" %></li>
