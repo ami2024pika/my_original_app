@@ -25,9 +25,9 @@
       <% end %>
       
       <div class="pb-4">
-        <%= f.label :category_id, "相談内容のジャンル", class: "fw-bold mb-2" %>
+        <%= f.label :category_id, "相談内容のカテゴリ", class: "fw-bold mb-2" %>
         <span class="small text-orange fw-bold">必須</span>
-        <%= f.collection_select :category_id, categories, :id, :name, prompt: "ジャンルを選択してください", class: "form-control" %>
+        <%= f.collection_select :category_id, categories, :id, :name, prompt: "カテゴリを選択してください", class: "form-control" %>
       </div>
       
       <div class="text-center">

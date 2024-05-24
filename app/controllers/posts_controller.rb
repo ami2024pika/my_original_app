@@ -21,8 +21,9 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path, notice: "投稿完了しました"
     else
+      (4 - @post.post_options.size).times { @post.post_options.build }
       render :new
-    end  
+    end
   end
   
   def edit

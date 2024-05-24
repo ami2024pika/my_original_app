@@ -1,16 +1,16 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-10 mt-5">
-      <div class="d-flex justify-content-center">
-        <div class="col-md-4 text-center">
+      <div class="d-flex justify-content-evenly justify-content-md-center">
+        <div class="col-md-4 d-flex justify-content-end">
           <% if current_user.avatar.present? %>
             <%= image_tag current_user.avatar.url, alt: "ユーザーアイコン", class: "rounded-circle", style: "border-radius: 50%; width: 120px; height: 120px; object-fit:cover;" %>
           <% else %>
             <%= image_tag "default_icon.png", alt: "default_icon", class: "rounded-circle", style: "width: 120px; height: 120px; object-fit: cover;" %>
           <% end %>
         </div>
-        <div class="col-md-6 d-flex align-items-center">
-          <div class="">
+        <div class="col-md-6 d-flex align-items-center justify-content-md-center justify-content-lg-start">
+          <div class="px-lg-5">
             <div class="d-flex align-items-center">
               <h1><%= current_user.username %></h1>
               <%= link_to "プロフィールを編集", edit_user_registration_path, class: "btn edit-profile-btn" %>

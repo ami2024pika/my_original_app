@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2024_04_26_154257) do
 
   create_table "post_options", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "post_id"
-    t.string "content", null: false
+    t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_post_options_on_post_id"
