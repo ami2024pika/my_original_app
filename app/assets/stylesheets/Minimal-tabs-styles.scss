@@ -5,13 +5,12 @@
 .btn-orange {
   background-color: #ffbc61;
   color: white;
-  transition: all .3s ease;
-}
-
-.btn-orange:hover {
-  border-color: #ed7700;
-  background-color: #FFF4E0;
-  color: #ed7700;
+  
+  &:hover {
+    transform: scale(0.9);
+    background-color: #ffbc61;
+    color: white;
+  }
 }
 
 .navbar>.container {
@@ -101,37 +100,116 @@
 .color_0 {
   background-color: #F99292;
   color: white;
+  
+  &:hover {
+    transform: scale(0.9);
+    background-color: #F99292;
+    color: white;
+  }
 }
 
 .color_1 {
   background-color: #ffbc61;
   color: white;
+  
+  &:hover {
+    transform: scale(0.9);
+    background-color: #ffbc61;
+    color: white;
+  }
 }
 
 .color_2 {
   background-color: #aad6ec;
   color: white;
+  
+  &:hover {
+    transform: scale(0.9);
+    background-color: #aad6ec;
+    color: white;
+  }
 }
 
 .color_3 {
   background-color: #6C85A3;
   color: white;
+  
+  &:hover {
+    transform: scale(0.9);
+    background-color: #6C85A3;
+    color: white;
+  }
 }
 
 @media (max-width: 575px) {
   .h1-responsive {
-    font-size: 25px;
+    font-size: 23px;
     text-align: center;
   }
   
   .vote_btn {
     font-size: 10px;
+    padding: 4px 8px;
+  }
+  
+  .category-title p {
+    font-size: 10px;
+  }
+  
+  .font-size-XS, .each_category {
+    font-size: 12px;
+  }
+  
+  .font-size-S {
+    font-size: 14px;
+  }
+  
+  .font-size-M {
+    font-size: 18px;
+  }
+  
+  .logo_img {
+    width: 120px;
+  }
+  
+  .option_content {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+  
+  .post_title {
+    font-size: 16px;
+  }
+  
+  .post_btn {
+    font-size: 11px;
+    padding: 6px 12px;
   }
 }
 
 @media screen and (min-width:576px) and ( max-width:991px) {
   .vote_btn {
     font-size: 12px;
+  }
+  
+  .post_title {
+    font-size: 18px;
+  }
+  
+  .post_btn {
+    font-size: 16px;
+    padding: 10px 16px;
+  }
+}
+
+@media (min-width:991px) {
+  .post_title {
+    font-size: 18px;
+  }
+  
+  .post_btn {
+    font-size: 16px;
+    padding: 8px 20px;
   }
 }
 
@@ -144,9 +222,16 @@
   font-size: 14px;
   color: white;
   background-color: #ffbc61;
-}
-
-.edit-profile-btn:hover {
-  color: #ed7700;
-  border-color: #ed7700;
+  
+  &:hover {
+    transform: scale(0.9);
+    margin-left: 20px;
+    font-weight: bold;
+    height: auto;
+    line-height: 1.8;
+    padding: 0 30px;
+    font-size: 14px;
+    color: white;
+    background-color: #ffbc61;
+  }
 }

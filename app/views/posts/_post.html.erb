@@ -3,7 +3,7 @@
     <!-- カテゴリー名と投票数の表示 -->
     <div>
       <span class="each_category"><%= post.category.name %></span>
-      <span class="votes_number"><span class="small">投票数</span> <span class="fw-bold"><%= Vote.where(post_id: post.id).count %>票</span></span>
+      <span class="votes_number"><span class="small font-size-XS">投票数</span> <span class="fw-bold font-size-S"><%= Vote.where(post_id: post.id).count %>票</span></span>
     </div>
     
     <!--詳細・編集・削除メニュー  -->
@@ -25,9 +25,9 @@
   </div>
   
   <!--投稿メインコンテンツ  -->
-  <div class="card_content" style="overflow-x: hidden;">
-    <p class="fw-bold mt-3 px-3", style="font-size: 18px;"><%= post.title %></p>
-    <p class="my-4 px-3"><%= post.content %></p>
+  <div class="card_content">
+    <p class="fw-bold mt-3 px-3 post_title"><%= post.title %></p>
+    <%= simple_format(post.content, class: "my-4 px-3 font-size-S") %>
       
     <div class="options">
       <% post.post_options.each_with_index do |option, index| %>

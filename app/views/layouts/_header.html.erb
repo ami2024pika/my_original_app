@@ -3,7 +3,7 @@
     <div class="w-100 d-flex justify-content-between align-items-center">
       <div>
         <%= link_to root_path, data: { turbolinks: false } do %>
-          <%= image_tag "logo.png", class: "img-fluid", width: "180px", alt: "Logo" %>
+          <%= image_tag "logo.png", class: "img-fluid logo_img", width: "180px", alt: "Logo" %>
         <% end %>
       </div>
       
@@ -28,11 +28,11 @@
               <%= link_to "ログアウト", destroy_user_session_path, class: "dropdown-item py-2", method: :delete %>
             </div>
           </div>
-          <%= link_to "悩みを投稿する", new_post_path, class: "btn btn-orange px-3 py-2", data: { turbolinks: false } %>
+          <%= link_to "悩みを投稿する", new_post_path, class: "btn btn-orange post_btn", data: { turbolinks: false } %>
         <% else %>
-          <%= link_to "ログイン", new_user_session_path, class: "btn text-orange me-3", data: { turbolinks: false } %>
-          <%= link_to "新規会員登録", new_user_registration_path, class: "btn text-orange me-3", data: { turbolinks: false } %>
-          <%= link_to "悩みを投稿する", new_post_path, class: "btn btn-orange px-3 py-2", data: { turbolinks: false } %>
+          <%= link_to "ログイン", new_user_session_path, class: "btn text-orange me-md-3 font-size-XS", data: { turbolinks: false } %>
+          <%= link_to "新規会員登録", new_user_registration_path, class: "btn text-orange me-md-3 font-size-XS", data: { turbolinks: false } %>
+          <%= link_to "悩みを投稿する", new_post_path, class: "btn btn-orange post_btn", data: { turbolinks: false } %>
         <% end %>
       </div>
     </div>

@@ -14,16 +14,14 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     4.times {@post.post_options.build}
-    # build_post_options(@post)
   end
   
   def create
     @post = Post.new(post_params)
-    
-
     if @post.save
       redirect_to root_path, notice: "投稿完了しました"
     else
+      (4 - @post.post_options.size).times { @post.post_options.build }
       render :new
     end
   end
@@ -60,9 +58,5 @@ class PostsController < ApplicationController
   
   def redirect_unless_creator!
     redirect_to root_path unless @post.user == current_user
-  end
-  
-  def build_post_options(post)
-    (4 - post.post_options.size).times { post.post_options.build }
   end
 end

@@ -6,9 +6,9 @@
           <div class="category-title">
             <p>みんなのお悩みカテゴリ</p>
           </div>
-          <p class="m-0"><%= link_to "新着順", root_path, class: "text-white", style: "text-decoration: none;" %></p>
+          <p class="m-0 font-size-S"><%= link_to "新着順", root_path, class: "text-white", style: "text-decoration: none;" %></p>
           <% @categories.each do |category| %>
-            <p class="m-0">
+            <p class="m-0 font-size-S">
               <%= link_to category.name, category_path(category), class: "text-white", style: "text-decoration: none;" %>
             </p>
           <% end %>
